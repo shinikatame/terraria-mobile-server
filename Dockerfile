@@ -1,11 +1,13 @@
 FROM debian:bullseye-slim
 
-RUN apt-get update && apt-get install -y wget unzip lib32gcc-s1 && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y unzip lib32gcc-s1 && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /terraria
 
-RUN wget https://terraria.org/api/download/pc-dedicated-server/terraria-server-1449.zip -O server.zip \
-    && unzip server.zip -d /terraria \
+COPY server.zip /terraria/
+
+# Descompacta dentro do container
+RUN unzip server.zip -d /terraria \
     && rm server.zip \
     && chmod +x /terraria/Linux/TerrariaServer.bin.x86_64
 
