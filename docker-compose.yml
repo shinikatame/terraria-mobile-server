@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  terraria:
+    build: .
+    container_name: terraria
+    ports:
+      - '7777:7777'
+    volumes:
+      - ./worlds:/world
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    command: >
+      -world /world/tabaculandia.wld
+      -autocreate 3
+      -worldname "tabaculandia"
+      -difficulty 3
+      -maxplayers 16
+      -password 1234
