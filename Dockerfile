@@ -12,4 +12,4 @@ WORKDIR /world
 
 EXPOSE 7777
 
-ENTRYPOINT ["/terraria/Linux/TerrariaServer.bin.x86_64"]
+ENTRYPOINT ["/terraria/terraria-server-unzip/Linux/TerrariaServer.bin.x86_64"]
